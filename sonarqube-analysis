@@ -10,8 +10,8 @@ node{
    
    stage('SonarQube Analysis') {
         def mvnHome =  tool name: 'maven', type: 'maven'
-        withSonarQubeEnv('sonar') { 
-          sh "${mvnHome}/bin/mvn sonar:sonar"
+        withSonarQubeEnv('k8s') { 
+          sh "${mvnHome}/bin/mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.4.0.905:sonar"
         }
     }
    
