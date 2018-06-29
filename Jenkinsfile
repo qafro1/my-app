@@ -5,13 +5,14 @@ pipeline {
     }
     
     stages {
-        stage ('Compile Stage') {
-            // Get maven home path
+        stage('build && SonarQube analysis') {
             steps {
-                 def mvnHome =  tool name: 'maven', type: 'maven' 
-                 sh "${mvnHome}/bin/mvn package"        
-            }   
-        }        
+                // Optionally use a Maven environment you've configured already
+                withMaven(maven:'Maven') {
+                    sh 'mvn clean package sonar:sonar'
+                }
+            }
+        }
     }
 
 }
