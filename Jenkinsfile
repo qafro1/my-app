@@ -8,14 +8,14 @@ pipeline {
         stage ('Compile Stage') {
             // Get maven home path
             steps {
-                    sh 'mvn clean package'          
+                 sh "${mvnHome}/bin/mvn package"        
             }   
         }        
     
         stage ('SonarQube analysis') {
             steps {
                 // Optionally use a Maven environment you've configured already
-                sh  'mvn clean package sonar:sonar'
+               
             }
         }
     }
