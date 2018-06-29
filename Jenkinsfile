@@ -15,7 +15,7 @@ pipeline {
         stage ('SonarQube analysis') {
             steps {
                 // Optionally use a Maven environment you've configured already
-                sh sh 'mvn clean package sonar:sonar'
+                sh  'mvn clean package sonar:sonar'
             }
         }
     }
