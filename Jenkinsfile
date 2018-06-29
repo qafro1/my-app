@@ -1,13 +1,5 @@
 pipeline {
     agent any
-    stages {
-        stage ('SCM') {
-            steps {
-                git 'https://github.com/qafro1/my-app.git'
-            }
-        }
-
-    }
     
     stages {
         stage ('Compile Stage') {
