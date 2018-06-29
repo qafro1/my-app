@@ -13,6 +13,14 @@ pipeline {
                 }
             }
         }
+         stage('SonarQube Quality Gate') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    // Optionally use a Maven environment you've configured already
+                    sh 'mvn clean package sonar:sonar'
+                }
+            }
+        }
     }
 
 }
