@@ -5,12 +5,10 @@ pipeline {
     }
     
     stages {
-        stage('build && SonarQube analysis') {
+        stage('build ') {
             steps {
                 // Optionally use a Maven environment you've configured already
-                withMaven(maven:'Maven') {
-                    sh 'mvn clean package sonar:sonar'
-                }
+                    sh 'mvn clean package'
             }
         }
     }
