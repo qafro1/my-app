@@ -12,6 +12,7 @@ pipeline {
             }   
         }        
     }
+    
     stages {
         stage ('SonarQube analysis') {
             steps {
